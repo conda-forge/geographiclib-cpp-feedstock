@@ -8,10 +8,10 @@
 -  -i --input-string "20.001 0 20.001 0" -f)
 -set_tests_properties (GeodSolve82 PROPERTIES PASS_REGULAR_EXPRESSION
 -  "20\\.0010* 0\\.0* 180\\.0* 20\\.0010* 0\\.0* 180\\.0* 0\\.0* 0\\.0* 0\\.0* 1\\.0* 1\\.0* -?0")
-+# add_test (NAME GeodSolve82 COMMAND GeodSolve
-+#   -i --input-string "20.001 0 20.001 0" -f)
-+# set_tests_properties (GeodSolve82 PROPERTIES PASS_REGULAR_EXPRESSION
-+#   "20\\.0010* 0\\.0* 180\\.0* 20\\.0010* 0\\.0* 180\\.0* 0\\.0* 0\\.0* 0\\.0* 1\\.0* 1\\.0* -?0")
++add_test (NAME GeodSolve82 COMMAND GeodSolve
++  -i --input-string "20.001 0 20.001 0" -f)
++set_tests_properties (GeodSolve82 PROPERTIES PASS_REGULAR_EXPRESSION
++  "20\\.0010* -?0\\.0* 180\\.0* 20\\.0010* -?0\\.0* 180\\.0* -?0\\.0* -?0\\.0* -?0\\.0* 1\\.0* 1\\.0* -?0")
  add_test (NAME GeodSolve83 COMMAND GeodSolve
    -i --input-string "90 0 90 180" -f)
  set_tests_properties (GeodSolve83 PROPERTIES PASS_REGULAR_EXPRESSION
