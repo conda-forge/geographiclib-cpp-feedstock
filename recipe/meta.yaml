@@ -23,6 +23,7 @@ requirements:
 
 test:
   commands:
+    - GeodSolve -i --input-string "20.001 0 20.001 0" -f
     - GeoConvert --version
 
 about:
