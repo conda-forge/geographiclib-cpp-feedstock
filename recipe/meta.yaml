@@ -10,6 +10,7 @@ source:
   sha256: 34370949617df5105bd6961e0b91581aef758dc455fe8629eb5858516022d310
   patches:
     - cxx-components-only.patch
+    - disable-geodsolve82-test.patch  # [aarch64 or ppc64le]
 
 build:
   number: 1
