@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.51.tar.gz
+  url: https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-{{ version }}.tar.gz
   sha256: 34370949617df5105bd6961e0b91581aef758dc455fe8629eb5858516022d310
   patches:
     - cxx-components-only.patch
