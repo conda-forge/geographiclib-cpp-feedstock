@@ -24,6 +24,7 @@ requirements:
 test:
   commands:
     - GeoConvert --version
+    - GeodSolve -i --input-string "20.001 0 20.001 0" -f -p 12
 
 about:
   home: https://geographiclib.sourceforge.io
