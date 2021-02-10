@@ -6,22 +6,25 @@ package:
   version: {{ version }}
 
 source:
-  url: https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-1.51.tar.gz
+  url: https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-{{ version }}.tar.gz
   sha256: 34370949617df5105bd6961e0b91581aef758dc455fe8629eb5858516022d310
   patches:
     - cxx-components-only.patch
+    - disable-geodsolve82-test.patch  # [aarch64 or ppc64le]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
-    - cmake
     - {{ compiler('cxx') }}
+    - cmake
+    - make  # [unix]
 
 test:
   commands:
     - GeoConvert --version
+    - GeodSolve -i --input-string "20.001 0 20.001 0" -f -p 12
 
 about:
   home: https://geographiclib.sourceforge.io

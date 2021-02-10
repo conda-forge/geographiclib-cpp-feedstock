@@ -1,0 +1,17 @@
+--- a/tools/tests.cmake	2020-11-23 00:00:22.000000000 +1000
++++ b/tools/tests.cmake	2021-02-09 12:15:00.064048398 +1000
+@@ -454,10 +454,10 @@
+   " 0\\.157 1\\.0000000000 1\\.0000000000 0")
+ 
+ # Tests to add code coverage: zero length geodesics
+-add_test (NAME GeodSolve82 COMMAND GeodSolve
+-  -i --input-string "20.001 0 20.001 0" -f)
+-set_tests_properties (GeodSolve82 PROPERTIES PASS_REGULAR_EXPRESSION
+-  "20\\.0010* 0\\.0* 180\\.0* 20\\.0010* 0\\.0* 180\\.0* 0\\.0* 0\\.0* 0\\.0* 1\\.0* 1\\.0* -?0")
++add_test (NAME GeodSolve82 COMMAND GeodSolve
++  -i --input-string "20.001 0 20.001 0" -f)
++set_tests_properties (GeodSolve82 PROPERTIES PASS_REGULAR_EXPRESSION
++  "20\\.0010* -?0\\.0* 180\\.0* 20\\.0010* -?0\\.0* 180\\.0* -?0\\.0* -?0\\.0* -?0\\.0* 1\\.0* 1\\.0* -?0")
+ add_test (NAME GeodSolve83 COMMAND GeodSolve
+   -i --input-string "90 0 90 180" -f)
+ set_tests_properties (GeodSolve83 PROPERTIES PASS_REGULAR_EXPRESSION
