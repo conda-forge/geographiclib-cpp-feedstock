@@ -9,7 +9,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geographiclib-c
 
 Summary: A small C++ library for geographic conversions
 
-Documentation: https://geographiclib.sourceforge.io/1.51
+Documentation: https://geographiclib.sourceforge.io/1.52
 
 GeographicLib is a small set of C++ classes for performing
 conversions between geographic, UTM, UPS, MGRS, geocentric, and

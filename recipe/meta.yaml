@@ -1,19 +1,18 @@
 {% set name = "GeographicLib" %}
-{% set version = "1.51" %}
+{% set version = "1.52" %}
 
 package:
-  name: "{{ name|lower }}-cpp"
+  name: {{ name|lower }}-cpp
   version: {{ version }}
 
 source:
   url: https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-{{ version }}.tar.gz
-  sha256: 34370949617df5105bd6961e0b91581aef758dc455fe8629eb5858516022d310
+  sha256: 5d4145cd16ebf51a2ff97c9244330a340787d131165cfd150e4b2840c0e8ac2b
   patches:
     - cxx-components-only.patch
-    - disable-geodsolve82-test.patch  # [aarch64 or ppc64le]
 
 build:
-  number: 2
+  number: 0
   run_exports:
     - {{ pin_subpackage('geographiclib-cpp', max_pin='x.x') }}
 
@@ -33,7 +32,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
-  summary: 'A small C++ library for geographic conversions'
+  summary: A small C++ library for geographic conversions
   description: |
     GeographicLib is a small set of C++ classes for performing
     conversions between geographic, UTM, UPS, MGRS, geocentric, and
