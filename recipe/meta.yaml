@@ -12,7 +12,7 @@ source:
     - cxx-components-only.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('geographiclib-cpp', max_pin='x.x') }}
 
