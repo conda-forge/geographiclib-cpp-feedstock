@@ -10,7 +10,9 @@ package:
 source:
   url: https://downloads.sourceforge.net/project/geographiclib/distrib-C++/GeographicLib-{{ fullversion }}.tar.gz
   sha256: 906b862aa9e988534fd5b8d9f3bae07437e0079a4236e19942ab61fe8c83960b
-
+  patches:
+    - geodtest-relax.patch
+	
 build:
   number: 0
   run_exports:
