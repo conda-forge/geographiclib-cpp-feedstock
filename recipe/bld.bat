@@ -1,7 +1,8 @@
 setlocal EnableDelayedExpansion
 
 cmake -G "NMake Makefiles" %CMAKE_ARGS% ^
-    -DBUILD_SHARED_LIBS=ON -DEXAMPLEDIR= -B BUILD -S .
+    -DBUILD_SHARED_LIBS=ON -DEXAMPLEDIR= -DCMAKE_DEBUG_POSTFIX= ^
+    -B BUILD -S .
 if errorlevel 1 exit 1
 
 cd BUILD
