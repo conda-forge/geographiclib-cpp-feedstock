@@ -1,13 +1,10 @@
 setlocal EnableDelayedExpansion
 
-mkdir build
-cd build
+cmake -G "NMake Makefiles" %CMAKE_ARGS% ^
+    -DBUILD_SHARED_LIBS=ON -DEXAMPLEDIR= -B BUILD -S .
+if errorlevel 1 exit 1
 
-cmake -G "NMake Makefiles" ^
-    -DGEOGRAPHICLIB_LIB_TYPE:STRING=SHARED ^
-    -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
-    -DCMAKE_BUILD_TYPE:STRING=Release ^
-    ..
+cd BUILD
 if errorlevel 1 exit 1
 
 nmake

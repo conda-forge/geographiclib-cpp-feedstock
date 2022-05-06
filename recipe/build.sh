@@ -1,14 +1,9 @@
 #! /bin/sh -e
-mkdir -p build && cd build
-
-cmake ${CMAKE_ARGS} \
-    -DGEOGRAPHICLIB_LIB_TYPE:STRING=SHARED \
-    -DCMAKE_INSTALL_PREFIX:PATH=${PREFIX} \
-    -DCMAKE_BUILD_TYPE:STRING=Release \
-    ..
+cmake ${CMAKE_ARGS} -DBUILD_SHARED_LIBS=ON -DEXAMPLEDIR= -B BUILD -S .
+cd BUILD
 
 make -j$CPU_COUNT
-if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
+if test "$CONDA_BUILD_CROSS_COMPILATION" != "1"; then
     make test
 fi
 make install
