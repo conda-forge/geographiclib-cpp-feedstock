@@ -1,18 +1,20 @@
 {% set name = "GeographicLib" %}
-{% set version = "1.52" %}
+# follow python version rules, see https://peps.python.org/pep-0440/
+{% set version = "2.0" %}
+{% set fullversion = "2.0" %}
 
 package:
   name: {{ name|lower }}-cpp
   version: {{ version }}
 
 source:
-  url: https://downloads.sourceforge.net/project/geographiclib/distrib/GeographicLib-{{ version }}.tar.gz
-  sha256: 5d4145cd16ebf51a2ff97c9244330a340787d131165cfd150e4b2840c0e8ac2b
+  url: https://downloads.sourceforge.net/project/geographiclib/distrib-C++/GeographicLib-{{ fullversion }}.tar.gz
+  sha256: 906b862aa9e988534fd5b8d9f3bae07437e0079a4236e19942ab61fe8c83960b
   patches:
-    - cxx-components-only.patch
+    - geodtest-relax.patch
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('geographiclib-cpp', max_pin='x.x') }}
 
@@ -25,7 +27,7 @@ requirements:
 test:
   commands:
     - GeoConvert --version
-    - GeodSolve -i --input-string "20.001 0 20.001 0" -f -p 12
+    - GeodSolve -i --input-string "1 2 3 4"
 
 about:
   home: https://geographiclib.sourceforge.io
@@ -34,12 +36,11 @@ about:
   license_file: LICENSE.txt
   summary: A small C++ library for geographic conversions
   description: |
-    GeographicLib is a small set of C++ classes for performing
-    conversions between geographic, UTM, UPS, MGRS, geocentric, and
-    local cartesian coordinates, for gravity (e.g., EGM2008), geoid
-    height, and geomagnetic field (e.g., WMM2020) calculations, and
-    for solving geodesic problems.
-  doc_url: https://geographiclib.sourceforge.io/{{ version }}
+    GeographicLib is a small C++ library for: geodesic and rhumb line
+    calculations; conversions between geographic, UTM, UPS, MGRS,
+    geocentric, and local cartesian coordinates; gravity (e.g.,
+    EGM2008) and geomagnetic field (e.g., WMM2020) calculations.
+  doc_url: https://geographiclib.sourceforge.io/C++/{{ fullversion }}
 
 extra:
   recipe-maintainers:
