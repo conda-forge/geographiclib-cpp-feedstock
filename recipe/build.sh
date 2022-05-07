@@ -1,7 +1,10 @@
 #! /bin/sh -e
-cmake ${CMAKE_ARGS} \
-      -DBUILD_SHARED_LIBS=ON -DEXAMPLEDIR= -DCMAKE_DEBUG_POSTFIX= \
-      -B BUILD -S .
+
+cmake \
+    -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DEXAMPLEDIR= \
+    -B BUILD -S .
 cd BUILD
 
 make -j$CPU_COUNT

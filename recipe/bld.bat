@@ -1,7 +1,9 @@
 setlocal EnableDelayedExpansion
 
-cmake -G "NMake Makefiles" %CMAKE_ARGS% ^
-    -DBUILD_SHARED_LIBS=ON -DEXAMPLEDIR= -DCMAKE_DEBUG_POSTFIX= ^
+cmake -G "NMake Makefiles" ^
+    -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
+    -DCMAKE_BUILD_TYPE=Release ^
+    -DEXAMPLEDIR= ^
     -B BUILD -S .
 if errorlevel 1 exit 1
 
