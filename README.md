@@ -9,15 +9,13 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geographiclib-c
 
 Summary: A small C++ library for geographic conversions
 
-Documentation: https://geographiclib.sourceforge.io/C++/2.0
+Documentation: https://geographiclib.sourceforge.io/C++/2.1
 
-GeographicLib is a small C++ library for
+GeographicLib is a small C++ library for: geodesic and rhumb line
+calculations; conversions between geographic, UTM, UPS, MGRS,
+geocentric, and local cartesian coordinates; gravity (e.g.,
+EGM2008) and geomagnetic field (e.g., WMM2020) calculations.
 
-* geodesic and rhumb line calculations;
-* conversions between geographic, UTM, UPS, MGRS, geocentric, and local
-  cartesian coordinates;
-* gravity (e.g., EGM2008) and geomagnetic field (e.g., WMM2020)
-  calculations.
 
 Current build status
 ====================
