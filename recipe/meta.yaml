@@ -9,6 +9,8 @@ package:
 
 source:
   url: https://downloads.sourceforge.net/project/geographiclib/distrib-C++/GeographicLib-{{ fullversion }}.tar.gz
+  patches:
+    - buggy-remquo.patch
   sha256: b062b472dae3d371b3005f4ea2fc59af687b8ea76eb23df732ec11c500fba959
 
 build:
