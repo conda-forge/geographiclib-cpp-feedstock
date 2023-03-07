@@ -1,15 +1,15 @@
-About geographiclib-cpp
-=======================
+About geographiclib-cpp-feedstock
+=================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geographiclib-cpp-feedstock/blob/main/LICENSE.txt)
 
 Home: https://geographiclib.sourceforge.io
 
 Package license: MIT
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geographiclib-cpp-feedstock/blob/main/LICENSE.txt)
-
 Summary: A small C++ library for geographic conversions
 
-Documentation: https://geographiclib.sourceforge.io/C++/2.1.2
+Documentation: https://geographiclib.sourceforge.io/C++/2.2
 
 GeographicLib is a small C++ library for: geodesic and rhumb line
 calculations; conversions between geographic, UTM, UPS, MGRS,
