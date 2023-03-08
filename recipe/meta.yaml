@@ -1,7 +1,7 @@
 {% set name = "GeographicLib" %}
 # follow python version rules, see https://peps.python.org/pep-0440/
-{% set version = "2.1.2" %}
-{% set fullversion = "2.1.2" %}
+{% set version = "2.2" %}
+{% set fullversion = "2.2" %}
 
 package:
   name: {{ name|lower }}-cpp
@@ -11,7 +11,7 @@ source:
   url: https://downloads.sourceforge.net/project/geographiclib/distrib-C++/GeographicLib-{{ fullversion }}.tar.gz
   patches:
     - buggy-signtest.patch
-  sha256: b062b472dae3d371b3005f4ea2fc59af687b8ea76eb23df732ec11c500fba959
+  sha256: 96bd68ae77288fbbffd854c1c8f2c2981dbdbc7670753013fe5ce9ce86d8a125
 
 build:
   number: 0
