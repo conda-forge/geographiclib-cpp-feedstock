@@ -11,10 +11,11 @@ source:
   url: https://downloads.sourceforge.net/project/geographiclib/distrib-C++/GeographicLib-{{ fullversion }}.tar.gz
   patches:
     - buggy-signtest.patch
+    - 19.patch
   sha256: 3114847839453ee6bbe2228e41dc73cad6de6160055442b747adc9c76f0a3198
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('geographiclib-cpp', max_pin='x.x') }}
 
