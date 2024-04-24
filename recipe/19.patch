@@ -1,0 +1,75 @@
+From a33c15d0d48c5194b00bf701a9a367a4b725e170 Mon Sep 17 00:00:00 2001
+From: Julia DeMille <me@jdemille.com>
+Date: Fri, 10 Nov 2023 17:45:55 -0600
+Subject: [PATCH 1/2] Remove unnecessary and broken cross-compile check.
+
+There is no need to disallow use of the built library if it was
+cross-compiled and the user is not, and the check is fundamentally
+broken anyway, since it checks for a STREQUAL instead of matching
+truthy with truthy and falsy with falsy.
+---
+ cmake/project-config-version.cmake.in | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/cmake/project-config-version.cmake.in b/cmake/project-config-version.cmake.in
+index 3b5196084..b641657be 100644
+--- a/cmake/project-config-version.cmake.in
++++ b/cmake/project-config-version.cmake.in
+@@ -48,10 +48,6 @@ elseif (GEOGRAPHICLIB_PRECISION MATCHES "^[1-5]\$" AND NOT (
+   # Reject if the user asks for an incompatible precsision.
+   set (REASON "GEOGRAPHICLIB_PRECISION = @GEOGRAPHICLIB_PRECISION@")
+   set (PACKAGE_VERSION_UNSUITABLE TRUE)
+-elseif (NOT CMAKE_CROSSCOMPILING_STR STREQUAL "@CMAKE_CROSSCOMPILING_STR@")
+-  # Reject if there's a mismatch in ${CMAKE_CROSSCOMPILING}.
+-  set (REASON "cross-compiling = @CMAKE_CROSSCOMPILING@")
+-  set (PACKAGE_VERSION_UNSUITABLE TRUE)
+ elseif (CMAKE_CROSSCOMPILING AND
+     NOT (CMAKE_SYSTEM_NAME STREQUAL "@CMAKE_SYSTEM_NAME@" AND
+       CMAKE_SYSTEM_PROCESSOR STREQUAL "@CMAKE_SYSTEM_PROCESSOR@"))
+
+From d9d38168e92b17a2ca1c013b5241fbe0482f0d46 Mon Sep 17 00:00:00 2001
+From: Julia DeMille <me@jdemille.com>
+Date: Sat, 11 Nov 2023 09:35:05 -0600
+Subject: [PATCH 2/2] Remove all references to CMAKE_CROSSCOMPILING_STR.
+
+---
+ cmake/CMakeLists.txt                  | 7 -------
+ cmake/project-config-version.cmake.in | 7 -------
+ 2 files changed, 14 deletions(-)
+
+diff --git a/cmake/CMakeLists.txt b/cmake/CMakeLists.txt
+index 7886c0103..4e2341d33 100644
+--- a/cmake/CMakeLists.txt
++++ b/cmake/CMakeLists.txt
+@@ -16,13 +16,6 @@ else ()
+   set (MSVC_TOOLSET_VERSION 0)
+   set (MSVC_TOOLSET_MAJOR 0)
+ endif ()
+-if (CMAKE_CROSSCOMPILING)
+-  # Ensure that all "true" (resp. "false") settings are represented by
+-  # the same string.
+-  set (CMAKE_CROSSCOMPILING_STR "ON")
+-else ()
+-  set (CMAKE_CROSSCOMPILING_STR "OFF")
+-endif ()
+ 
+ # geographiclib-config.cmake for the build tree
+ set (PROJECT_ROOT_DIR "${PROJECT_BINARY_DIR}")
+diff --git a/cmake/project-config-version.cmake.in b/cmake/project-config-version.cmake.in
+index b641657be..e591e174c 100644
+--- a/cmake/project-config-version.cmake.in
++++ b/cmake/project-config-version.cmake.in
+@@ -14,13 +14,6 @@ if (MSVC)
+   # digit.
+   math (EXPR MSVC_TOOLSET_MAJOR "${MSVC_TOOLSET_VERSION}/10")
+ endif ()
+-if (CMAKE_CROSSCOMPILING)
+-  # Ensure that all "true" (resp. "false") settings are represented by
+-  # the same string.
+-  set (CMAKE_CROSSCOMPILING_STR "ON")
+-else ()
+-  set (CMAKE_CROSSCOMPILING_STR "OFF")
+-endif ()
+ 
+ if (NOT PACKAGE_FIND_NAME STREQUAL "@PROJECT_NAME@")
+   # Check package name (in particular, because of the way cmake finds
