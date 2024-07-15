@@ -9,6 +9,6 @@ cd BUILD
 
 make -j$CPU_COUNT
 if test "$CONDA_BUILD_CROSS_COMPILATION" != "1"; then
-    make test
+    make testprograms test
 fi
 make install
