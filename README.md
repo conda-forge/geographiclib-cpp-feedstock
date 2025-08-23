@@ -9,7 +9,7 @@ Package license: MIT
 
 Summary: A small C++ library for geographic conversions
 
-Documentation: https://geographiclib.sourceforge.io/C++/2.5.1
+Documentation: https://geographiclib.sourceforge.io/C++/2.5.2
 
 GeographicLib is a small C++ library for: geodesic and rhumb line
 calculations; conversions between geographic, UTM, UPS, MGRS,
