@@ -9,12 +9,13 @@ Package license: MIT
 
 Summary: A small C++ library for geographic conversions
 
-Documentation: https://geographiclib.sourceforge.io/C++/2.5.2
+Documentation: https://geographiclib.sourceforge.io/C++/2.6
 
 GeographicLib is a small C++ library for: geodesic and rhumb line
 calculations; conversions between geographic, UTM, UPS, MGRS,
-geocentric, and local cartesian coordinates; gravity (e.g.,
-EGM2008) and geomagnetic field (e.g., WMM2020) calculations.
+geocentric, and local cartesian coordinates; gravity (e.g., EGM2008)
+and geomagnetic field (e.g., WMM2020) calculations; geodesics and
+projections on triaxial ellipsoids.
 
 
 Current build status
